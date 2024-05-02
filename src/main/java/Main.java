@@ -20,6 +20,14 @@ public class Main {
         } catch (UserAlreadyExistsException e) {
             throw new RuntimeException(e);
         }
+        User user = null;
+        for(User user1: mla.getUsers()){
+            if(user1.getName().equals(name)){
+                user=user1;
+                break;
+            }
+        }
+        ArrayList<Movie> m = new ArrayList<>();
 
         while(c!=0){
 
@@ -37,32 +45,115 @@ public class Main {
                     int secondC = scan.nextInt();
                     scan.nextLine();
                     String s;
+
                     switch (secondC){
                         case 1:
                             System.out.print("Enter the title of the movie: ");
                             s = scan.nextLine();
-                            ArrayList<Movie> m = new ArrayList<>();
+
                             for(Movie movie: mla.getMovies()) {
                                 if(movie.getTitle().getMovieTitle().equals(s)){
-                                    m = mla.searchMoviesByTitle(movie.getTitle());
-                                    break;
+                                    m.add(movie);
                                 }
                             }
+                            m.sort(new Sortbyname());
                             for(Movie movie: m){
                                 System.out.println(movie.toString());
                             }
                             break;
                         case 2:
+                            System.out.print("Enter the cast: ");
+                            s = scan.nextLine();
+
+                            for(Movie movie: mla.getMovies()) {
+                                for(Actor actor: movie.getCast()){
+                                    if(actor.getName().equals(s)){
+                                        m.add(movie);
+                                        break;
+                                    }
+                                }
+                            }
+                            m.sort(new Sortbyname());
+                            for(Movie movie: m){
+                                System.out.println(movie.toString());
+                            }
                             break;
                         case 3:
+                            System.out.print("Enter the category: ");
+                            s = scan.nextLine();
+
+                            for(Movie movie: mla.getMovies()) {
+                                for(Category category: movie.getCategories()){
+                                    if(category.getMovieCategory().equals(s)){
+                                        m.add(movie);
+                                        break;
+                                    }
+                                }
+                            }
+                            m.sort(new Sortbyname());
+                            for(Movie movie: m){
+                                System.out.println(movie.toString());
+                            }
                             break;
                         case 4:
+                            System.out.print("Enter the title of the movie from your favorites: ");
+                            s = scan.nextLine();
+
+
+                            if (user != null) {
+                                for(Movie movie: user.getMovies()) {
+                                    if(movie.getTitle().getMovieTitle().equals(s)){
+                                        m.add(movie);
+                                    }
+                                }
+                            }
+                            m.sort(new Sortbyname());
+                            for(Movie movie: m){
+                                System.out.println(movie.toString());
+                            }
                             break;
                         default:
                             System.out.println("Invalid Choice");
                     }
                     break;
                 case 3:
+                    System.out.println("\nUser Details:\nName: "+name+"\nEmail: "+email+"\n");
+                    if (user != null) {
+                        m = user.getMovies();
+                    }
+                    System.out.println("Your Favourites: ");
+                    m.sort(new Sortbyname());
+                    for(Movie movie: m){
+                        System.out.println(movie.toString());
+                    }
+                    break;
+                case 4:
+                    System.out.print("Enter a movie title to add to favourites: ");
+                    scan.nextLine();
+                    s = scan.nextLine();
+                    for(Movie movie: mla.getMovies()){
+                        if(movie.getTitle().getMovieTitle().equals(s)){
+                            if (user != null) {
+                                user.addMovie(movie);
+                            }
+                            System.out.println(s+" added to favorite.");
+                            break;
+                        }
+                    }
+                    break;
+                case 5:
+                    System.out.print("Enter a movie title to remove from favourites: ");
+                    scan.nextLine();
+                    s = scan.nextLine();
+                    for(Movie movie: mla.getMovies()){
+                        if(movie.getTitle().getMovieTitle().equals(s)){
+                            if (user != null) {
+                                user.removeMovie(movie);
+                            }
+                            System.out.println(s+" removed from favorite.");
+                            break;
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Enter a valid input");
