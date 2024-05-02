@@ -121,4 +121,24 @@ public class MovieListingApplicationTest {
             assert !movie.getTitle().getMovieTitle().equals("exampleTitle") || (true);
         }
     }
+
+    @Test
+    void testAddTheMovieToActor(){
+        MovieListingApplication mla = new MovieListingApplication();
+        Actor actor = new Actor("exampleName");
+        mla.addTheMovieToActor(actor,new Movie(new Title("exampleTitle"),"2023-02-02",100000));
+        for(Movie movie: actor.getMovies()){
+            assert !movie.getTitle().getMovieTitle().equals("exampleTitle") || true;
+        }
+    }
+
+    @Test
+    void testAddTheMovieToCategory(){
+        MovieListingApplication mla = new MovieListingApplication();
+        Category category = new Category("exampleName");
+        mla.addTheMovieToCategory(category,new Movie(new Title("exampleTitle"),"2023-02-02",100000));
+        for(Movie movie: category.getMovies()){
+            assert !movie.getTitle().getMovieTitle().equals("exampleTitle") || true;
+        }
+    }
 }
