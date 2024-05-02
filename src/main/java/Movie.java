@@ -25,6 +25,10 @@ public class Movie {
         cast.add(actor);
     }
 
+    public void addActorsToCast(ArrayList<Actor> actors){
+        cast.addAll(actors);
+    }
+
     public ArrayList<Actor> getCast(){
         return cast;
     }
