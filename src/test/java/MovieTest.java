@@ -22,4 +22,17 @@ public class MovieTest {
         }
         assert(flag);
     }
+
+    @Test
+    void testAddCategory(){
+        movie.addCategory(new Category("exampleCategory"));
+        boolean flag = false;
+        for(Category category: movie.getCategory()){
+            if(category.getName().equals("exampleCategory")){
+                flag = true;
+                break;
+            }
+        }
+        assert(flag);
+    }
 }
