@@ -27,8 +27,8 @@ public class MovieTest {
     void testAddCategory(){
         movie.addCategory(new Category("exampleCategory"));
         boolean flag = false;
-        for(Category category: movie.getCategory()){
-            if(category.getName().equals("exampleCategory")){
+        for(Category category: movie.getCategories()){
+            if(category.getMovieCategory().equals("exampleCategory")){
                 flag = true;
                 break;
             }
