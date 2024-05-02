@@ -1,7 +1,8 @@
-public class User {
+public class User extends Person{
     private String email;
 
-    public User(String email){
+    public User(String name, String email){
+        super(name);
         this.email = email;
     }
 

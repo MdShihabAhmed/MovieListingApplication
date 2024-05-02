@@ -6,7 +6,7 @@ public class MovieListingApplicationTest {
     void testRegisterUser() {
         MovieListingApplication mla = new MovieListingApplication();
         try {
-            mla.registerUser("example@example.com");
+            mla.registerUser("name","example@example.com");
         }
         catch(UserAlreadyExistsException e){
             System.out.println(e);
@@ -20,8 +20,8 @@ public class MovieListingApplicationTest {
     void testRegisterUser2() {
         MovieListingApplication mla = new MovieListingApplication();
         try {
-            mla.registerUser("example@example.com");
-            mla.registerUser("example@example.com");
+            mla.registerUser("name","example@example.com");
+            mla.registerUser("name","example@example.com");
 
         }
         catch(UserAlreadyExistsException e){
