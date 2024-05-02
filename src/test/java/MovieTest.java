@@ -53,4 +53,20 @@ public class MovieTest {
         }
         assert(flag);
     }
+
+    @Test
+    void testAddCategories(){
+        ArrayList<Category> categories = new ArrayList<>();
+        categories.add(new Category("exampleCategory"));
+        categories.add(new Category("exampleCategory1"));
+        movie.addCategories(categories);
+        boolean flag = true;
+        for(Category category: categories){
+            if (!movie.getCategories().contains(category)) {
+                flag = false;
+                break;
+            }
+        }
+        assert(flag);
+    }
 }
