@@ -21,7 +21,7 @@ public class Movie {
         return title;
     }
 
-    public void addCast(Actor actor){
+    public void addActorToCast(Actor actor){
         cast.add(actor);
     }
 

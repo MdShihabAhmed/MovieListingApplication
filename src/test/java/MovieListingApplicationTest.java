@@ -47,7 +47,7 @@ public class MovieListingApplicationTest {
         MovieListingApplication mla = new MovieListingApplication();
         Movie movie = new Movie(new Title("Example"),"2018-05-05",100000);
         Actor actor = new Actor("exampleName");
-        movie.addCast(actor);
+        movie.addActorToCast(actor);
         mla.addMovie(movie);
 
         ArrayList<Movie> mo = mla.searchMoviesByCast(new Actor("exampleName"));
