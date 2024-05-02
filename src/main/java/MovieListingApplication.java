@@ -1,4 +1,6 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MovieListingApplication {
     private ArrayList<String> emails;
@@ -38,6 +40,13 @@ public class MovieListingApplication {
     }
 
     public void addMovie(Movie movie){
+        movies.add(movie);
+    }
+
+    public void addMovie(Title title, ArrayList<Actor> cast, ArrayList<Category> categories, String releaseDate, int budget){
+        Movie movie = new Movie(title, releaseDate, budget);
+        movie.addActorsToCast(cast);
+        movie.addCategories(categories);
         movies.add(movie);
     }
 

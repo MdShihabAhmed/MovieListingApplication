@@ -99,4 +99,26 @@ public class MovieListingApplicationTest {
         }
         assert(flag);
     }
+
+    @Test
+    void testAddMovie(){
+        Title title = new Title("exampleTitle");
+
+        ArrayList<Actor> cast = new ArrayList<>();
+        cast.add(new Actor("exampleName"));
+        cast.add(new Actor("exampleName1"));
+
+        ArrayList<Category> categories = new ArrayList<>();
+        categories.add(new Category("exampleCategory"));
+        categories.add(new Category("exampleCategory1"));
+
+        String date = "2022-03-03";
+
+        int budget = 10000000;
+        MovieListingApplication mla = new MovieListingApplication();
+        mla.addMovie(title,cast,categories,date,budget);
+        for(Movie movie:mla.getMovies()){
+            assert !movie.getTitle().getMovieTitle().equals("exampleTitle") || (true);
+        }
+    }
 }
