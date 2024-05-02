@@ -52,4 +52,14 @@ public class Movie {
         return budget;
     }
 
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title=" + title +
+                ", cast=" + cast +
+                ", categories=" + categories +
+                ", releaseDate=" + releaseDate +
+                ", budget=" + budget +
+                '}';
+    }
 }
