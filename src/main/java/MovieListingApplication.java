@@ -48,6 +48,20 @@ public class MovieListingApplication {
         movie.addActorsToCast(cast);
         movie.addCategories(categories);
         movies.add(movie);
+        for(Actor actor:cast) {
+            this.addTheMovieToActor(actor,movie);
+        }
+        for(Category category: categories) {
+            this.addTheMovieToCategory(category,movie);
+        }
+    }
+
+    public void addTheMovieToActor(Actor actor, Movie movie){
+        actor.addMovie(movie);
+    }
+
+    public void addTheMovieToCategory(Category category, Movie movie){
+        category.addMovie(movie);
     }
 
     public ArrayList<Movie> searchMoviesByTitle(Title title){
@@ -86,4 +100,6 @@ public class MovieListingApplication {
 
         return movies;
     }
+
+
 }
