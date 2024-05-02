@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MovieTest {
@@ -17,6 +19,22 @@ public class MovieTest {
         for(Actor actor: movie.getCast()){
             if(actor.getName().equals("exampleName")){
                 flag = true;
+                break;
+            }
+        }
+        assert(flag);
+    }
+
+    @Test
+    void testAddActorsToCast(){
+        ArrayList<Actor> actors = new ArrayList<>();
+        actors.add(new Actor("exampleName"));
+        actors.add(new Actor("exampleName1"));
+        movie.addActorsToCast(actors);
+        boolean flag = true;
+        for(Actor actor1: actors) {
+            if (!movie.getCast().contains(actor1)) {
+                flag = false;
                 break;
             }
         }
