@@ -118,7 +118,7 @@ public class MovieListingApplicationTest {
         MovieListingApplication mla = new MovieListingApplication();
         mla.addMovie(title,cast,categories,date,budget);
         for(Movie movie:mla.getMovies()){
-            assert true;
+            if(!movie.getTitle().getMovieTitle().equals("exampleTitle")) assert true;
         }
     }
 
@@ -128,7 +128,7 @@ public class MovieListingApplicationTest {
         Actor actor = new Actor("exampleName");
         mla.addTheMovieToActor(actor,new Movie(new Title("exampleTitle"),"2023-02-02",100000));
         for(Movie movie: actor.getMovies()){
-            assert true;
+            if(!movie.getTitle().getMovieTitle().equals("exampleTitle")) assert true;
         }
     }
 
@@ -138,7 +138,15 @@ public class MovieListingApplicationTest {
         Category category = new Category("exampleName");
         mla.addTheMovieToCategory(category,new Movie(new Title("exampleTitle"),"2023-02-02",100000));
         for(Movie movie: category.getMovies()){
-            assert true;
+            if(!movie.getTitle().getMovieTitle().equals("exampleTitle")) assert true;
         }
+    }
+
+    @Test
+    void testAddMoviesToFavourites(){
+        User user = new User("example","example@example.com");
+        Movie movie = new Movie(new Title("exampleTitle"),"2023-02-02",100000);
+        user.addMoviesToFavourites(movie);
+        if(user.getMovies().contains(movie)) assert true;
     }
 }
