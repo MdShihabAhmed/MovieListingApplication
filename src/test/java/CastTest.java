@@ -5,7 +5,7 @@ public class CastTest {
 
     @Test
     void testGetName() {
-        cast.addMovie(new Movie(new Title("Example")));
+        cast.addMovie(new Movie(new Title("Example"),"2018-05-05",100000));
         assert("exampleCast".equals(cast.getName()));
     }
 
