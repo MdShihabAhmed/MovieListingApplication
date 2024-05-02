@@ -41,4 +41,13 @@ public class MovieListingApplicationTest {
         ArrayList<Movie> mo = mla.searchMoviesByTitle(new Title("Example"));
         assert(mo.contains(movie));
     }
+
+    @Test
+    void testSearchMoviesByCast(){
+        MovieListingApplication mla = new MovieListingApplication();
+        Movie movie = new Movie(new Title("Example"),"2018-05-05",100000);
+        mla.addMovie(movie);
+        ArrayList<Movie> mo = mla.searchMoviesByCast(new Title("Example"));
+        assert(mo.contains(movie));
+    }
 }
