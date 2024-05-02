@@ -7,6 +7,19 @@ public class MovieTest {
 
     @Test
     void testGetTitle() {
-        assertNotNull(movie);
+        assert("exampleTitle".equals(movie.getTitle().getMovieTitle()));
+    }
+
+    @Test
+    void testAddCasts(){
+        movie.addCasts(new Cast("exampleName"));
+        boolean flag = false;
+        for(Cast cast: casts){
+            if(cast.getName().equals("exampleName")){
+                flag = true;
+                break;
+            }
+        }
+        assert(flag);
     }
 }
