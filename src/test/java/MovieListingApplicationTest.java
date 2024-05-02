@@ -118,7 +118,7 @@ public class MovieListingApplicationTest {
         MovieListingApplication mla = new MovieListingApplication();
         mla.addMovie(title,cast,categories,date,budget);
         for(Movie movie:mla.getMovies()){
-            assert !movie.getTitle().getMovieTitle().equals("exampleTitle") || (true);
+            assert true;
         }
     }
 
@@ -128,7 +128,7 @@ public class MovieListingApplicationTest {
         Actor actor = new Actor("exampleName");
         mla.addTheMovieToActor(actor,new Movie(new Title("exampleTitle"),"2023-02-02",100000));
         for(Movie movie: actor.getMovies()){
-            assert !movie.getTitle().getMovieTitle().equals("exampleTitle") || true;
+            assert true;
         }
     }
 
@@ -138,7 +138,7 @@ public class MovieListingApplicationTest {
         Category category = new Category("exampleName");
         mla.addTheMovieToCategory(category,new Movie(new Title("exampleTitle"),"2023-02-02",100000));
         for(Movie movie: category.getMovies()){
-            assert !movie.getTitle().getMovieTitle().equals("exampleTitle") || true;
+            assert true;
         }
     }
 }
