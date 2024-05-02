@@ -109,4 +109,13 @@ public class MovieListingApplication {
         user.removeMovie(movie);
     }
 
+    public ArrayList<Movie> searchMoviesFromFavorites(User user, Title title){
+        ArrayList<Movie> searchResult = new ArrayList<>();
+        for(Movie movie: user.getMovies()){
+            if(movie.getTitle().getMovieTitle().equals(title.getMovieTitle())){
+                searchResult.add(movie);
+            }
+        }
+        return searchResult;
+    }
 }

@@ -54,12 +54,20 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "title=" + title +
-                ", cast=" + cast +
-                ", categories=" + categories +
-                ", releaseDate=" + releaseDate +
-                ", budget=" + budget +
+        String s = "Movie{";
+                s+="title=" + title.getMovieTitle();
+                s+=",   Cast=";
+                for(Actor actor: this.cast){
+                    s+="," + actor.getName() ;
+                }
+                s+=", Category=";
+                for(Category category: this.categories){
+                    s+="," + category.getMovieCategory() ;
+                }
+                s+=",   releaseDate=" + releaseDate ;
+                s+=",   budget=" + budget +
                 '}';
+
+                return s;
     }
 }
