@@ -68,4 +68,35 @@ public class MovieListingApplicationTest {
         }
         assert(flag);
     }
+
+    @Test
+    void testSearchMoviesByCastMultiple(){
+        MovieListingApplication mla = new MovieListingApplication();
+        Movie movie = new Movie(new Title("Example"),"2018-05-05",100000);
+        Actor actor = new Actor("exampleName");
+        Actor actor1 = new Actor("exampleName1");
+        Actor actor2 = new Actor("exampleName2");
+        movie.addActorToCast(actor);
+        movie.addActorToCast(actor1);
+        movie.addActorToCast(actor2);
+        mla.addMovie(movie);
+
+        ArrayList<Actor> cast = new ArrayList<>();
+        cast.add(actor);
+        cast.add(actor2);
+
+        ArrayList<Movie> mo = mla.searchMoviesByCast(cast);
+
+        boolean flag = true;
+        for(Movie m: mo) {
+            for(Actor acto: cast){
+                if (!m.getCast().contains(acto)) {
+                    flag = false;
+                    break;
+                }
+            }
+            if(!flag) break;
+        }
+        assert(flag);
+    }
 }
