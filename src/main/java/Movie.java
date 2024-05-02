@@ -36,6 +36,9 @@ public class Movie {
     public void addCategory(Category category){
         categories.add(category);
     }
+    public void addCategories(ArrayList<Category> categories){
+        this.categories.addAll(categories);
+    }
 
     public ArrayList<Category> getCategories(){
         return categories;
