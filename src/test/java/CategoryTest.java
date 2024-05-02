@@ -5,6 +5,6 @@ public class CategoryTest {
     @Test
     void testGetMovieCategory() {
         Category category = new Category("exampleCategory");
-        assert("exampleCategory".equals(category.getMovieCategory));
+        assert("exampleCategory".equals(category.getMovieCategory()));
     }
 }
