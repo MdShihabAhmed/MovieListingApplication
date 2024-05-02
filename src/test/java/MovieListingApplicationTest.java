@@ -143,10 +143,11 @@ public class MovieListingApplicationTest {
     }
 
     @Test
-    void testAddMoviesToFavourites(){
+    void testAddMovieToFavourites(){
+        MovieListingApplication mla = new MovieListingApplication();
         User user = new User("example","example@example.com");
         Movie movie = new Movie(new Title("exampleTitle"),"2023-02-02",100000);
-        user.addMoviesToFavourites(movie);
+        mla.addMovieToFavourites(user,movie);
         if(user.getMovies().contains(movie)) assert true;
     }
 }
