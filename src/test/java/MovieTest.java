@@ -11,11 +11,11 @@ public class MovieTest {
     }
 
     @Test
-    void testAddCasts(){
+    void testAddCast(){
         movie.addCast(new Actor("exampleName"));
         boolean flag = false;
-        for(Actor cast: movie.getCasts()){
-            if(cast.getName().equals("exampleName")){
+        for(Actor actor: movie.getCast()){
+            if(actor.getName().equals("exampleName")){
                 flag = true;
                 break;
             }

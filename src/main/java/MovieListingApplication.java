@@ -4,14 +4,14 @@ public class MovieListingApplication {
     private ArrayList<String> emails;
     private ArrayList<User> users;
     private ArrayList<Movie> movies;
-    private ArrayList<Actor> casts;
+    private ArrayList<Actor> cast;
 
 
     public MovieListingApplication(){
         this.emails = new ArrayList<>();
         this.users = new ArrayList<>();
         this.movies = new ArrayList<>();
-        this.casts = new ArrayList<>();
+        this.cast = new ArrayList<>();
     }
 
     public void registerUser(String name, String email) throws UserAlreadyExistsException {
@@ -52,14 +52,14 @@ public class MovieListingApplication {
     }
 
 
-    public ArrayList<Actor> getCasts(){
-        return casts;
+    public ArrayList<Actor> getCast(){
+        return cast;
     }
 
-    public ArrayList<Movie> searchMoviesByCast(Actor cast){
-        for(Actor cast1: this.getCasts()){
-            if(cast1.getName().equals(cast.getName())){
-                return cast1.getMovies();
+    public ArrayList<Movie> searchMoviesByCast(Actor actor){
+        for(Actor actor1: this.getCast()){
+            if(actor1.getName().equals(actor.getName())){
+                return actor1.getMovies();
             }
         }
         return new ArrayList<>();
