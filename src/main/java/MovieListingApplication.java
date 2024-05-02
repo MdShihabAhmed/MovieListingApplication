@@ -10,7 +10,12 @@ public class MovieListingApplication {
         users = new ArrayList<>();
     }
 
-    public void registerUser(String email){
+    public void registerUser(String email) throws UserAlreadyExistsException {
+
+        if(emails.contains(email)){
+            throw new UserAlreadyExistsException();
+        }
+
         emails.add(email);
         User user = new User(email);
         users.add(user);
