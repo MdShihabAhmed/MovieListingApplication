@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 public class CastTest {
-    Cast cast = new Cast("exampleCast");
+    Actor cast = new Actor("exampleCast");
 
     @Test
     void testGetName() {

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Movie {
     private Title title;
-    private ArrayList<Cast> casts;
+    private ArrayList<Actor> casts;
     private ArrayList<Category> categories;
     private LocalDate releaseDate;
     private int budget;//as the budget won't be in decimals
@@ -21,11 +21,11 @@ public class Movie {
         return title;
     }
 
-    public void addCast(Cast cast){
+    public void addCast(Actor cast){
         casts.add(cast);
     }
 
-    public ArrayList<Cast> getCasts(){
+    public ArrayList<Actor> getCasts(){
         return casts;
     }
 

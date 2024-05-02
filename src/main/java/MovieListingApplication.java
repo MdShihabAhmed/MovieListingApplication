@@ -4,7 +4,7 @@ public class MovieListingApplication {
     private ArrayList<String> emails;
     private ArrayList<User> users;
     private ArrayList<Movie> movies;
-    private ArrayList<Cast> casts;
+    private ArrayList<Actor> casts;
 
 
     public MovieListingApplication(){
@@ -52,12 +52,12 @@ public class MovieListingApplication {
     }
 
 
-    public ArrayList<Cast> getCasts(){
+    public ArrayList<Actor> getCasts(){
         return casts;
     }
 
-    public ArrayList<Movie> searchMoviesByCast(Cast cast){
-        for(Cast cast1: this.getCasts()){
+    public ArrayList<Movie> searchMoviesByCast(Actor cast){
+        for(Actor cast1: this.getCasts()){
             if(cast1.getName().equals(cast.getName())){
                 return cast1.getMovies();
             }

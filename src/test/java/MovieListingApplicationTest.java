@@ -46,14 +46,15 @@ public class MovieListingApplicationTest {
     void testSearchMoviesByCast(){
         MovieListingApplication mla = new MovieListingApplication();
         Movie movie = new Movie(new Title("Example"),"2018-05-05",100000);
-        Cast cast = new Cast("exampleName");
+        Actor cast = new Actor("exampleName");
         movie.addCast(cast);
         mla.addMovie(movie);
 
-        ArrayList<Movie> mo = mla.searchMoviesByCast(new Cast("exampleName"));
+        ArrayList<Movie> mo = mla.searchMoviesByCast(new Actor("exampleName"));
         boolean flag = false;
+        assert(true);
         for(Movie m: mo) {
-            for (Cast cast1 : m.getCasts()) {
+            for (Actor cast1 : m.getCasts()) {
                 if (cast1.getName().equals("exampleName")) {
                     flag = true;
                     break;
