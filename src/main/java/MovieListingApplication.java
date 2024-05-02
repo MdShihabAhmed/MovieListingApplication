@@ -64,4 +64,17 @@ public class MovieListingApplication {
         }
         return new ArrayList<>();
     }
+
+    public ArrayList<Movie> searchMoviesByCast(ArrayList<Actor> cast){
+        ArrayList<Movie> movies = new ArrayList<>();
+        for(Movie movie: this.getMovies()){
+            boolean flag = true;
+            for(Actor actor: cast){
+                if(!movie.getCast().contains(actor)) flag = false;
+            }
+            if (flag) movies.add(movie);
+        }
+
+        return movies;
+    }
 }
