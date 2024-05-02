@@ -13,4 +13,8 @@ public class User extends Person{
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void removeMovie(Movie movie){
+        this.getMovies().remove(movie);
+    }
 }

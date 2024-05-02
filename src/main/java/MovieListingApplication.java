@@ -101,5 +101,12 @@ public class MovieListingApplication {
         return movies;
     }
 
+    public void addMovieToFavourites(User user, Movie movie){
+        user.addMovie(movie);
+    }
+
+    public void removeMovieFromFavourites(User user, Movie movie){
+        user.removeMovie(movie);
+    }
 
 }
