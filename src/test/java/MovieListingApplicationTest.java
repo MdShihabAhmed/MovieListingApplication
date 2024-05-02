@@ -6,6 +6,7 @@ public class MovieListingApplicationTest {
     void testRegisterUser() {
         MovieListingApplication mla = new MovieListingApplication();
         mla.registerUser("example@example.com");
-        assert(mla.getUsers.contains(new User("example@example.com")));
+
+        assert(mla.getEmails().contains("example@example.com"));
     }
 }
