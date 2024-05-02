@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 public class MovieListingApplicationTest {
 
     @Test
@@ -29,5 +31,14 @@ public class MovieListingApplicationTest {
         }
 
         assert(mla.getEmails().contains("example@example.com"));
+    }
+
+    @Test
+    void testSearchMoviesByTitle(){
+        MovieListingApplication mla = new MovieListingApplication();
+        Movie movie = new Movie(new Title("Example"),"2018-05-05",100000);
+        mla.addMovie(movie);
+        ArrayList<Movie> mo = mla.searchMoviesByTitle(new Title("Example"));
+        assert(mo.contains(movie));
     }
 }
