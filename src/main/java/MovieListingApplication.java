@@ -51,6 +51,7 @@ public class MovieListingApplication {
         return searchResult;
     }
 
+
     public ArrayList<Cast> getCasts(){
         return casts;
     }
