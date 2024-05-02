@@ -51,14 +51,19 @@ public class MovieListingApplicationTest {
         mla.addMovie(movie);
 
         ArrayList<Movie> mo = mla.searchMoviesByCast(new Actor("exampleName"));
-        boolean flag = false;
-        assert(true);
+
+        boolean flag = true;
         for(Movie m: mo) {
+            boolean flag2=false;
             for (Actor actor1 : m.getCast()) {
                 if (actor1.getName().equals("exampleName")) {
                     flag = true;
                     break;
                 }
+            }
+            if(!flag2){
+                flag = false;
+                break;
             }
         }
         assert(flag);
